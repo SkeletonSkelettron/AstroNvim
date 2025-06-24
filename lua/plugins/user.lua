@@ -295,4 +295,34 @@ return {
       vim.cmd "colorscheme jb"
     end,
   },
+  -- GitHub Copilot plugin
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth", -- Automatically run :Copilot auth on first install
+    event = "BufReadPost",
+    opts = {
+      suggestion = { enabled = false }, -- Disable Copilot's own inline suggestions
+      panel = { enabled = false }, -- Disable Copilot's own suggestion panel
+    },
+  },
+
+  -- Integration for nvim-cmp with Copilot
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "zbirenbaum/copilot.lua" }, -- Ensure copilot.lua is loaded first
+    config = function() require("copilot_cmp").setup {} end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "copilot",
+        group_index = 1,
+        priority = 100,
+      })
+      -- Also include the <Tab> keybinding configuration from step 3 above if desired.
+      -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback) ... end)
+    end,
+  },
 }
