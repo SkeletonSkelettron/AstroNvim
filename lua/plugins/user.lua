@@ -231,25 +231,25 @@ return {
       -- you just load it and set options via vim.g
     end,
   },
-  {
-    "projekt0n/github-nvim-theme",
-    lazy = false, -- Load immediately on startup
-    priority = 1000, -- Give it a high priority
-    config = function()
-      require("github-theme").setup {
-        theme_style = "light", -- Crucial: Set to "light" for GitHub Light
-        transparent = false,
-        hide_inactive_statusline = false,
-        function_style = "italic",
-        comment_style = "italic",
-        keyword_style = "bold",
-        variable_style = "bold",
-        -- You can explore more options in the plugin's documentation
-        -- like integrations with other plugins (nvim-tree, cmp, etc.)
-        -- Check https://github.com/projekt0n/github-nvim-theme
-      }
-    end,
-  },
+  -- {
+  --   "projekt0n/github-nvim-theme",
+  --   lazy = false, -- Load immediately on startup
+  --   priority = 1000, -- Give it a high priority
+  --   config = function()
+  --     require("github-theme").setup {
+  --       theme_style = "light", -- Crucial: Set to "light" for GitHub Light
+  --       transparent = false,
+  --       hide_inactive_statusline = false,
+  --       function_style = "italic",
+  --       comment_style = "italic",
+  --       keyword_style = "bold",
+  --       variable_style = "bold",
+  --       -- You can explore more options in the plugin's documentation
+  --       -- like integrations with other plugins (nvim-tree, cmp, etc.)
+  --       -- Check https://github.com/projekt0n/github-nvim-theme
+  --     }
+  --   end,
+  -- },
   {
     "rmehri01/onenord.nvim",
     lazy = false, -- Load immediately on startup
@@ -273,6 +273,10 @@ return {
           functions = "bold",
           variables = "NONE",
           diagnostics = "underline",
+        },
+        custom_highlights = {
+          ["@constructor"] = { fg = "#0000FF" },
+          ["Number"] = { fg = "#0000FF" },
         },
 
         -- You can explore more options in the plugin's documentation
