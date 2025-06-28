@@ -463,33 +463,23 @@ return {
     "neovim/nvim-lspconfig",
     ---@param opts lspconfig.options
     opts = {
-      -- ... other nvim-lspconfig opts, if any ...
-
+      -- Configure server setup to use your custom clangd configuration
       servers = {
-        -- Ensure 'clangd' (or 'ccls') is listed here.
-        -- If it's not explicitly defined, add an empty table for it
-        -- to override AstroNvim's defaults for this specific server.
-        clangd = { -- <<< CHANGE THIS TO 'ccls' IF YOU USE ccls
-          -- This 'init' function runs right before the LSP client starts.
-          -- It allows you to modify the client's capabilities.
-          init = function(client)
-            -- IMPORTANT: Disable semantic tokens support.
-            -- This tells Neovim NOT to request semantic tokens from the LSP server.
-            client.resolved_capabilities.semanticTokensProvider = nil
-
-            -- Note: For very old Neovim/LSP setups, you might need a different path
-            -- if client.resolved_capabilities.textDocument and client.resolved_capabilities.textDocument.semanticTokens then
-            --   client.resolved_capabilities.textDocument.semanticTokens = nil
-            -- end
-          end,
-          -- Keep any other clangd-specific settings you might have here.
-          -- Example:
-          -- cmd = { "clangd", "--log=verbose" },
-          -- filetypes = { "c", "cpp", "objc", "objcpp" },
-        },
-        -- ... other server configurations (e.g., lua_ls, tsserver, etc.) ...
+        -- Remove clangd from here since we're using custom setup
+        -- clangd = {},  -- Remove this line
       },
     },
+    config = function(plugin, opts)
+      -- First, run the default AstroNvim lspconfig setup
+      require "astronvim.plugins.configs.lspconfig"(plugin, opts)
+
+      -- Then load your custom clangd configuration
+      local clangd_config = require "user.plugins.clangd"
+      if clangd_config and clangd_config.clangd then
+        -- Execute your custom clangd setup function
+        clangd_config.clangd()
+      end
+    end,
   },
   {
     "nickkadutskyi/jb.nvim",
