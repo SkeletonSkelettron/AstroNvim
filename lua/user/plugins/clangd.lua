@@ -52,7 +52,7 @@ return {
             ParameterNames = true,
             DeducedTypes = true,
           },
-          fallbackFlags = { "-std=c++17" },
+          fallbackFlags = { "-std=c++20" },
         },
       },
     }

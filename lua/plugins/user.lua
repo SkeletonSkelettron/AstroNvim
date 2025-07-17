@@ -190,21 +190,21 @@ return {
       --require("dap").set(vim.fn.expand "~/dap_debug.log")
     end,
   },
-  {
-    "3rd/image.nvim",
-    opts = {
-      backend = "kitty", -- or "ueberzug" for Linux
-      integrations = {
-        markdown = {
-          enabled = true,
-          clear_in_insert_mode = false,
-          download_remote_images = true,
-          only_render_image_at_cursor = false,
-          filetypes = { "markdown", "vimwiki" },
-        },
-      },
-    },
-  },
+  -- {
+  --   "3rd/image.nvim",
+  --   opts = {
+  --     backend = "kitty", -- or "ueberzug" for Linux
+  --     integrations = {
+  --       markdown = {
+  --         enabled = true,
+  --         clear_in_insert_mode = false,
+  --         download_remote_images = true,
+  --         only_render_image_at_cursor = false,
+  --         filetypes = { "markdown", "vimwiki" },
+  --       },
+  --     },
+  --   },
+  -- },
   {
     "karb94/neoscroll.nvim",
     opts = {
@@ -403,23 +403,35 @@ return {
           ["@keyword.conditional"] = { fg = "#AF00DB", bold = false },
           ["cConditional"] = { fg = "#AF00DB", bold = false },
 
+          ["@lsp.typemod.function.globalScope.cpp"] = { fg = "#74531f", bold = false },
+          ["@lsp.type.function.cpp"] = { fg = "#74531f", bold = false },
+          ["@lsp.typemod.function.defaultLibrary.cpp"] = { fg = "#74531f", bold = false },
+          ["@lsp.typemod.class.defaultLibrary.cpp"] = { fg = "#3879c5", bold = false },
+          ["@lsp.typemod.class.globalScope.cpp"] = { fg = "#3879c5", bold = false },
+          ["@lsp.mod.globalScope.cpp"] = { fg = "#3879c5", bold = false },
+          ["@lsp.typemod.method.defaultLibrary.cpp"] = { fg = "#74531f", bold = false },
+          ["@function.method"] = { fg = "#74531f", bold = false },
+          ["@lsp.typemod.method.readonly.cpp"] = { fg = "#74531f", bold = false },
+          ["@lsp.typemod.method.classScope.cpp"] = { fg = "#74531f", bold = false },
+          ["@lsp.type.method.cpp"] = { fg = "#74531f", bold = false },
+
           ["@constructor"] = { fg = "#0000FF" },
           ["Number"] = { fg = "#0000FF" },
           ["@number"] = { fg = "#0000FF" },
           ["@type.builtin"] = { fg = "#0000FF" },
-          ["@lsp.typemod.type.defaultLibrary.cpp"] = { fg = "#0000FF" },
-          ["@lsp.mod.defaultLibrary.cpp"] = { fg = "#267F99" },
-          ["@lsp.type.variable.cpp"] = { fg = "#001080" },
+          ["@lsp.typemod.type.defaultLibrary.cpp"] = { fg = "#0000FF", bold = false },
+          ["@lsp.mod.defaultLibrary.cpp"] = { fg = "#267F99", bold = false },
+          ["@lsp.type.variable.cpp"] = { fg = "#001080", bold = false },
 
           -- C++ property/field access highlighting
-          ["@property"] = { fg = "#001080" },
+          ["@property"] = { fg = "#001080", bold = false },
 
-          ["@lsp.type.property.cpp"] = { fg = "#001080" },
-          ["@lsp.mod.classScope.cpp"] = { fg = "#001080" },
+          ["@lsp.type.property.cpp"] = { fg = "#001080", bold = false },
+          ["@lsp.mod.classScope.cpp"] = { fg = "#001080", bold = false },
           ["@lsp.typemod.property.classScope.cpp"] = { fg = "#001080" },
           ["@lsp.typemod.property.defaultLibrary.cpp"] = { fg = "#001080" },
-          ["cppString"] = { fg = "#A31515" },
-          ["cType"] = { fg = "#0000FF" },
+          ["cppString"] = { fg = "#A31515", bold = false },
+          ["cType"] = { fg = "#0000FF", bold = false },
 
           -- CORRECT comment highlight groups
           ["Comment"] = { fg = "#008000" }, -- Base comment group
@@ -441,6 +453,12 @@ return {
           ["@keyword.repeat"] = { fg = "#AF00DB" }, -- Tree-sitter loop keywords (for, while, etc.)
           ["cRepeat"] = { fg = "#AF00DB" }, -- C repeat statements
           ["Repeat"] = { fg = "#AF00DB" }, -- Vim's repeat keyword group
+
+          -- angular
+          ["IlluminatedWordText"] = { fg = "#0000FF", bold = false },
+          ["@lsp.typemod.property.declaration.typescript"] = { bold = false },
+          ["@lsp.mod.declaration.typescript"] = { bold = false },
+          ["@lsp.type.property.typescript"] = { bold = false },
         },
       }
 
@@ -551,6 +569,19 @@ return {
         -- vim.g.mapleader = ' '
         -- vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = "Save File" })
       end,
+    },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+    opts = {
+      indent = {
+        char = "", -- Change character
+        highlight = "Comment", -- Make them dimmer
+      },
+      scope = {
+        enabled = false, -- Disable scope highlighting
+      },
     },
   },
 }
