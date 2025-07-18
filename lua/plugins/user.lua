@@ -573,7 +573,10 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
+    enabled = true,
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
     opts = {
       indent = {
         char = "", -- Change character
