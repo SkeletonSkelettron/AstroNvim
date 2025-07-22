@@ -83,28 +83,30 @@ return {
       )
     end,
   },
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
-    event = "BufReadPost", -- Or "VeryLazy"
-    config = function()
-      require("diffview").setup {
-        -- Your diffview.nvim configuration options can go here
-        -- Example: To set default layout or other preferences
-        -- view = {
-        --   default = {
-        --     layout = "diff2_vertical", -- 'diff2_horizontal', 'diff3_vertical', 'diff3_horizontal'
-        --   },
-        -- },
-        -- file_panel = {
-        --   win_config = {
-        --     position = "left", -- 'left', 'right'
-        --     width = 30,
-        --   },
-        -- },
-      }
-    end,
-  },
+
+--   {
+--     "sindrets/diffview.nvim",
+--     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
+--     event = "BufReadPost", -- Or "VeryLazy"
+--     config = function()
+--       require("diffview").setup {
+--         -- Your diffview.nvim configuration options can go here
+--         -- Example: To set default layout or other preferences
+--         -- view = {
+--         --   default = {
+--         --     layout = "diff2_vertical", -- 'diff2_horizontal', 'diff3_vertical', 'diff3_horizontal'
+--         --   },
+--         -- },
+--         -- file_panel = {
+--         --   win_config = {
+--         --     position = "left", -- 'left', 'right'
+--         --     width = 30,
+--         --   },
+--         -- },
+--       }
+--     end,
+--   },
+
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
@@ -118,6 +120,7 @@ return {
       dap.listeners.before.event_exited["dapui_config"] = function() end
     end,
   },
+
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
@@ -132,44 +135,44 @@ return {
       "codelldb", -- For C/C++ (if you want to keep it)
     },
   },
-  {
-    "lewis6991/gitsigns.nvim",
-    -- Optional: Add configuration for gitsigns.nvim here
-    -- This 'opts' table will be passed to require("gitsigns").setup()
-    opts = {
-      -- Customize keymaps (optional)
-      signs = {
-        add = { text = "▎" },
-        change = { text = "▎" },
-        delete = { text = "✖" },
-        topdelete = { text = "⇧" },
-        changedelete = { text = "▎" },
-      },
-      on_attach = function(bufnr)
-        -- Keymaps for Gitsigns actions (optional, but recommended)
-        local gs = require "gitsigns"
-        local map = vim.keymap.set
-        local bufopts = { silent = true, buffer = bufnr }
-
-        map("n", "]h", function() gs.nav_hunk "next" end, bufopts)
-        map("n", "[h", function() gs.nav_hunk "prev" end, bufopts)
-        map("n", "<leader>hs", gs.stage_hunk, bufopts)
-        map("n", "<leader>hr", gs.reset_hunk, bufopts)
-        map("v", "<leader>hs", function() gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" } end, bufopts)
-        map("v", "<leader>hr", function() gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" } end, bufopts)
-        map("n", "<leader>hS", gs.stage_buffer, bufopts)
-        map("n", "<leader>hu", gs.reset_hunk, { vim.fn.line ".", vim.fn.line "v" })
-        map("n", "<leader>hR", gs.reset_buffer, bufopts)
-        map("n", "<leader>hp", gs.preview_hunk, bufopts)
-        map("n", "<leader>hb", function() gs.blame_line { full = true } end, bufopts)
-        map("n", "<leader>hd", gs.diffthis, bufopts)
-        map("n", "<leader>hD", function() gs.diffthis "~" end, bufopts)
-        map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", bufopts)
-      end,
-    },
-    -- The 'config' function runs the setup
-    config = function(_, opts) require("gitsigns").setup(opts) end,
-  },
+  -- {
+  --   "lewis6991/gitsigns.nvim",
+  --   -- Optional: Add configuration for gitsigns.nvim here
+  --   -- This 'opts' table will be passed to require("gitsigns").setup()
+  --   opts = {
+  --     -- Customize keymaps (optional)
+  --     signs = {
+  --       add = { text = "▎" },
+  --       change = { text = "▎" },
+  --       delete = { text = "✖" },
+  --       topdelete = { text = "⇧" },
+  --       changedelete = { text = "▎" },
+  --     },
+  --     on_attach = function(bufnr)
+  --       -- Keymaps for Gitsigns actions (optional, but recommended)
+  --       local gs = require "gitsigns"
+  --       local map = vim.keymap.set
+  --       local bufopts = { silent = true, buffer = bufnr }
+  --
+  --       map("n", "]h", function() gs.nav_hunk "next" end, bufopts)
+  --       map("n", "[h", function() gs.nav_hunk "prev" end, bufopts)
+  --       map("n", "<leader>hs", gs.stage_hunk, bufopts)
+  --       map("n", "<leader>hr", gs.reset_hunk, bufopts)
+  --       map("v", "<leader>hs", function() gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" } end, bufopts)
+  --       map("v", "<leader>hr", function() gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" } end, bufopts)
+  --       map("n", "<leader>hS", gs.stage_buffer, bufopts)
+  --       map("n", "<leader>hu", gs.reset_hunk, { vim.fn.line ".", vim.fn.line "v" })
+  --       map("n", "<leader>hR", gs.reset_buffer, bufopts)
+  --       map("n", "<leader>hp", gs.preview_hunk, bufopts)
+  --       map("n", "<leader>hb", function() gs.blame_line { full = true } end, bufopts)
+  --       map("n", "<leader>hd", gs.diffthis, bufopts)
+  --       map("n", "<leader>hD", function() gs.diffthis "~" end, bufopts)
+  --       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", bufopts)
+  --     end,
+  --   },
+  --   -- The 'config' function runs the setup
+  --   config = function(_, opts) require("gitsigns").setup(opts) end,
+  -- },
   {
     "mfussenegger/nvim-dap",
     -- Add other DAP-related dependencies here if they are not already managed by AstroNvim's core
@@ -269,83 +272,8 @@ return {
       ]]
     end,
   },
-  {
-    "cdmill/neomodern.nvim",
-    lazy = false, -- Load immediately on startup
-    priority = 1000, -- Give it a high priority to ensure it loads before other UI elements
-    config = function()
-      require("neomodern").setup {
-        -- Set your preferred theme variant and color
-        theme = "gyokuro", -- Or "iceclimber", "hojicha", "roseprime"
-        variant = "light", -- VERY IMPORTANT: Specify 'light' for a light theme
-        -- You can customize other options here if you want:
-        -- transparent = false,
-        -- styles = {
-        --   comments = { "italic" },
-        --   keywords = { "bold" },
-        -- },
-        -- highlights = {
-        --   Comment = { fg = "#666666" },
-        -- },
-      }
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin", -- Important for setting the colorscheme by its name later
-    lazy = false, -- Load immediately on startup
-    priority = 1000, -- Give it a high priority
-    config = function()
-      require("catppuccin").setup {
-        flavour = "latte", -- This is the light variant of Catppuccin
-        -- Other optional settings you can customize:
-        transparent_background = false, -- Set to true if you want a transparent background
-        term_colors = true, -- Set terminal colors (useful if your terminal supports it)
-        styles = { -- Style specific elements
-          comments = { "italic" },
-          conditionals = { "bold" },
-          loops = { "italic" },
-          functions = { "bold" },
-          keywords = { "bold" },
-          strings = { "italic" },
-          variables = { "bold" },
-          numbers = { "italic" },
-          booleans = { "bold" },
-          properties = { "italic" },
-          type = { "bold" },
-          operators = { "italic" },
-        },
-        integrations = { -- Integrate with other plugins (if you use them)
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          telescope = true,
-          mini = true,
-          which_key = true,
-          -- Add more integrations as needed
-        },
-      }
-    end,
-  },
-  {
-    "ayu-theme/ayu-vim",
-    lazy = false, -- Load immediately on startup
-    priority = 1000, -- Give it a high priority
-    config = function()
-      -- You can set global variables here if the theme requires it
-      -- For ayu-vim, setting the background to 'light' is often key
-      vim.o.background = "light"
-      vim.g.ayu_colorscheme = "light" -- Some variants use this
-      -- If you want specifically 'ayu_light' (often the default light), you might not need ayu_colorscheme
 
-      -- Other options you might find in ayu-vim's documentation:
-      -- vim.g.ayu_italic = 1 -- Enable italic for comments etc.
-      -- vim.g.ayu_true_colors = 1 -- For true color terminals
 
-      -- No explicit `require("ayu").setup()` for this one usually,
-      -- you just load it and set options via vim.g
-    end,
-  },
   -- {
   --   "projekt0n/github-nvim-theme",
   --   lazy = false, -- Load immediately on startup
@@ -366,117 +294,7 @@ return {
   --   end,
   -- },
   --
-  {
-    "rmehri01/onenord.nvim",
-    lazy = false, -- Load immediately on startup
-    priority = 1000, -- Give it a high priority
-    config = function()
-      require("onenord").setup {
-        theme = "light",
-        borders = true, -- Split window borders
-        fade_nc = false, -- Fade non-current windows
-        styles = {
-          comments = "NONE", -- No specific style, just color
-          strings = "NONE",
-          keywords = "bold",
-          functions = "bold",
-          variables = "NONE",
-          diagnostics = "underline",
-        },
-        custom_highlights = {
-          -- Variable field access (variable->field, variable.field)
-          ["VariableField"] = { fg = "#001080" },
 
-          -- Boolean values (true, false)
-          ["Boolean"] = { fg = "#0000FF" }, -- Base boolean group
-          ["@boolean"] = { fg = "#0000FF" }, -- Tree-sitter booleans
-          ["@constant.builtin.boolean"] = { fg = "#0000FF" }, -- Tree-sitter boolean constants
-          ["cppBoolean"] = { fg = "#0000FF" }, -- C++ boolean values
-
-          -- Boolean type (bool)
-          ["Type"] = { fg = "#0000FF" }, -- Base type group
-          ["@type"] = { fg = "#0000FF" }, -- Tree-sitter types
-          ["StorageClass"] = { fg = "#0000FF" }, -- Storage class specifiers
-
-          -- FIX: "if" should not be bold - need to specify color AND bold = false
-          ["Conditional"] = { fg = "#AF00DB", bold = false },
-          ["@keyword.conditional"] = { fg = "#AF00DB", bold = false },
-          ["cConditional"] = { fg = "#AF00DB", bold = false },
-
-          ["@lsp.typemod.function.globalScope.cpp"] = { fg = "#74531f", bold = false },
-          ["@lsp.type.function.cpp"] = { fg = "#74531f", bold = false },
-          ["@lsp.typemod.function.defaultLibrary.cpp"] = { fg = "#74531f", bold = false },
-          ["@lsp.typemod.class.defaultLibrary.cpp"] = { fg = "#3879c5", bold = false },
-          ["@lsp.typemod.class.globalScope.cpp"] = { fg = "#3879c5", bold = false },
-          ["@lsp.mod.globalScope.cpp"] = { fg = "#3879c5", bold = false },
-          ["@lsp.typemod.method.defaultLibrary.cpp"] = { fg = "#74531f", bold = false },
-          ["@function.method"] = { fg = "#74531f", bold = false },
-          ["@lsp.typemod.method.readonly.cpp"] = { fg = "#74531f", bold = false },
-          ["@lsp.typemod.method.classScope.cpp"] = { fg = "#74531f", bold = false },
-          ["@lsp.type.method.cpp"] = { fg = "#74531f", bold = false },
-
-          ["@constructor"] = { fg = "#0000FF" },
-          ["Number"] = { fg = "#0000FF" },
-          ["@number"] = { fg = "#0000FF" },
-          ["@type.builtin"] = { fg = "#0000FF" },
-          ["@lsp.typemod.type.defaultLibrary.cpp"] = { fg = "#0000FF", bold = false },
-          ["@lsp.mod.defaultLibrary.cpp"] = { fg = "#267F99", bold = false },
-          ["@lsp.type.variable.cpp"] = { fg = "#001080", bold = false },
-
-          -- C++ property/field access highlighting
-          ["@property"] = { fg = "#001080", bold = false },
-
-          ["@lsp.type.property.cpp"] = { fg = "#001080", bold = false },
-          ["@lsp.mod.classScope.cpp"] = { fg = "#001080", bold = false },
-          ["@lsp.typemod.property.classScope.cpp"] = { fg = "#001080" },
-          ["@lsp.typemod.property.defaultLibrary.cpp"] = { fg = "#001080" },
-          ["cppString"] = { fg = "#A31515", bold = false },
-          ["cType"] = { fg = "#0000FF", bold = false },
-
-          -- CORRECT comment highlight groups
-          ["Comment"] = { fg = "#008000" }, -- Base comment group
-          ["@comment"] = { fg = "#008000" }, -- Tree-sitter comments
-          ["cCommentL"] = { fg = "#008000" }, -- C line comments
-          ["cComment"] = { fg = "#008000" }, -- C block comments
-          ["@comment.line"] = { fg = "#008000" }, -- Tree-sitter line comments
-          ["@comment.block"] = { fg = "#008000" }, -- Tree-sitter block comments
-
-          -- Add these for #include preprocessing directives
-          ["PreProc"] = { fg = "#AF00DB" }, -- Base preprocessor group
-          ["@preproc"] = { fg = "#AF00DB" }, -- Tree-sitter preprocessor
-          ["cInclude"] = { fg = "#AF00DB" }, -- C #include specifically
-          ["@keyword.directive"] = { fg = "#AF00DB" }, -- Tree-sitter directive keywords
-          ["@keyword.import"] = { fg = "#AF00DB" }, -- Tree-sitter import keywords
-          ["cPreCondit"] = { fg = "#AF00DB" },
-
-          -- "for" loop keyword - be specific
-          ["@keyword.repeat"] = { fg = "#AF00DB" }, -- Tree-sitter loop keywords (for, while, etc.)
-          ["cRepeat"] = { fg = "#AF00DB" }, -- C repeat statements
-          ["Repeat"] = { fg = "#AF00DB" }, -- Vim's repeat keyword group
-
-          -- angular
-          ["IlluminatedWordText"] = { fg = "#0000FF", bold = false },
-          ["@lsp.typemod.property.declaration.typescript"] = { bold = false },
-          ["@lsp.mod.declaration.typescript"] = { bold = false },
-          ["@lsp.type.property.typescript"] = { bold = false },
-        },
-      }
-
-      -- Force the highlight after theme loads
-      vim.schedule(function()
-        vim.api.nvim_set_hl(0, "@keyword.conditional", { fg = "#AF00DB", bold = false })
-        vim.api.nvim_set_hl(0, "Conditional", { fg = "#AF00DB", bold = false })
-        vim.api.nvim_set_hl(0, "cConditional", { fg = "#AF00DB", bold = false })
-
-        -- Force LSP property highlights
-        vim.api.nvim_set_hl(0, "@property", { fg = "#001080" })
-        vim.api.nvim_set_hl(0, "@lsp.type.property.cpp", { fg = "#001080" })
-        vim.api.nvim_set_hl(0, "@lsp.mod.classScope.cpp", { fg = "#001080" })
-        vim.api.nvim_set_hl(0, "@lsp.typemod.property.classScope.cpp", { fg = "#001080" })
-        vim.api.nvim_set_hl(0, "@lsp.typemod.property.defaultLibrary.cpp", { fg = "#001080" })
-      end)
-    end,
-  },
   {
     "neovim/nvim-lspconfig",
     ---@param opts lspconfig.options
@@ -510,23 +328,23 @@ return {
     end,
   },
   -- GitHub Copilot plugin
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    build = ":Copilot auth", -- Automatically run :Copilot auth on first install
-    event = "BufReadPost",
-    opts = {
-      suggestion = { enabled = false }, -- Disable Copilot's own inline suggestions
-      panel = { enabled = false }, -- Disable Copilot's own suggestion panel
-    },
-  },
-
-  -- Integration for nvim-cmp with Copilot
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = { "zbirenbaum/copilot.lua" }, -- Ensure copilot.lua is loaded first
-    config = function() require("copilot_cmp").setup {} end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   build = ":Copilot auth", -- Automatically run :Copilot auth on first install
+  --   event = "BufReadPost",
+  --   opts = {
+  --     suggestion = { enabled = false }, -- Disable Copilot's own inline suggestions
+  --     panel = { enabled = false }, -- Disable Copilot's own suggestion panel
+  --   },
+  -- },
+  --
+  -- -- Integration for nvim-cmp with Copilot
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   dependencies = { "zbirenbaum/copilot.lua" }, -- Ensure copilot.lua is loaded first
+  --   config = function() require("copilot_cmp").setup {} end,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
@@ -566,8 +384,27 @@ return {
         -- Add the clipboard setting here
         vim.opt.clipboard = "unnamedplus"
         -- Your existing global keymaps might also be here, like:
-        -- vim.g.mapleader = ' '
-        -- vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = "Save File" })
+        vim.opt.timeoutlen = 300 -- Shorter timeout for key sequences, can make mappings feel snappier
+
+        vim.keymap.set("i", "<C-Left>", "<C-o>b", { silent = true, desc = "Move word left" })
+        vim.keymap.set("i", "<C-Right>", "<C-o>w", { silent = true, desc = "Move word right" })
+
+        vim.keymap.set("i", "<C-Home>", "<C-o>0", { silent = true, desc = "Go to start of line" })
+        vim.keymap.set("i", "<C-End>", "<C-o>$", { silent = true, desc = "Go to end of line" })
+        vim.keymap.set(
+          "i",
+          "<C-c>",
+          "<C-o>y",
+          { silent = true, desc = "Copy current selection/line (Normal mode command)" }
+        )
+        vim.keymap.set("i", "<C-x>", "<C-o>d", { silent = true, desc = "Cut (delete) selection/line" })
+        vim.keymap.set("i", "<C-v>", "<C-r>+", { silent = true, desc = "Paste from system clipboard" })
+        vim.keymap.set("i", "<C-z>", "<C-o>u", { silent = true, desc = "Undo" })
+        vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { silent = true, desc = "Redo (Ctrl+r in Normal mode)" }) -- Standard Vim redo
+        vim.keymap.set("i", "<C-Del>", "<C-o>dw", { silent = true, desc = "Delete word forward" })
+        vim.keymap.set("i", "<C-a>", "<Esc>ggVG<CR>", { silent = true, desc = "Select all (exits insert mode)" })
+        vim.keymap.set("i", "<C-t>", "<C-o>>>", { silent = true, desc = "Indent current line" }) -- `>>` in Normal mode
+        vim.keymap.set("i", "<C-d>", "<C-o><<", { silent = true, desc = "Outdent current line" }) -- `<<` in Normal mode
       end,
     },
   },
@@ -584,6 +421,144 @@ return {
       },
       scope = {
         enabled = false, -- Disable scope highlighting
+      },
+    },
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*", -- Use the latest stable release
+    cmd = "ToggleTerm", -- Makes the plugin available via :ToggleTerm command
+    config = function()
+      require("toggleterm").setup {
+        -- Your configuration options go here
+        -- For example:
+        size = 20,
+        open_mapping = [[<c-\>]], -- Default mapping, you can change this
+        direction = "float", -- or "horizontal", "vertical"
+        -- and many more options: shade_filetypes, start_in_insert, etc.
+      }
+    end,
+    keys = {
+      -- Example keybinding: <leader>t to toggle the terminal
+      { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+      -- Example for floating terminal
+      { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle floating terminal" },
+      -- Example for horizontal terminal
+      { "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Toggle horizontal terminal" },
+      -- Example for vertical terminal
+      { "<leader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Toggle vertical terminal" },
+      -- You can also specify specific terminal types:
+      { "<leader>tn", function() require("toggleterm").toggle(1) end, desc = "Toggle Node.js terminal" },
+      { "<leader>tg", function() require("toggleterm").toggle(2) end, desc = "Toggle Git terminal" },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8", -- or tag = "0.1.x" for stable, or use branch = "master" for latest
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required by Telescope
+      "BurntSushi/ripgrep", -- You need ripgrep installed globally for Telescope's live_grep
+    },
+    config = function()
+      local telescope = require "telescope"
+      local actions = require "telescope.actions"
+      local builtin = require "telescope.builtin"
+
+      telescope.setup {
+        defaults = {
+          -- Your general Telescope settings
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden", -- Search hidden files/directories
+            "--glob",
+            "!**/.git/*", -- Ignore .git directory
+            "--glob",
+            "!**/node_modules/*", -- Ignore node_modules
+            -- Add more --glob patterns to exclude directories you don't want to search
+          },
+          -- Keybindings for the results pane
+          mappings = {
+            i = {
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-j>"] = actions.move_selection_next,
+              ["<CR>"] = actions.select_default, -- Opens file
+              ["<C-x>"] = actions.select_horizontal, -- Opens in horizontal split
+              ["<C-v>"] = actions.select_vertical, -- Opens in vertical split
+              ["<C-t>"] = actions.select_tab, -- Opens in new tab
+            },
+            n = {
+              ["<CR>"] = actions.select_default,
+              ["<C-x>"] = actions.select_horizontal,
+              ["<C-v>"] = actions.select_vertical,
+              ["<C-t>"] = actions.select_tab,
+            },
+          },
+          -- Configure the preview window
+          preview = {
+            -- Options for the preview window (like width, height, etc.)
+            -- You can make it hide by default and toggle with a key
+            layout = "vertical", -- or "horizontal" for preview on right/left
+            width = 0.5, -- e.g., preview takes 50% of the window
+            -- Other options: buffer_previewer_maker, vim_diff_previewer_maker
+          },
+          -- Optional: customize layouts
+          layout_config = {
+            prompt_position = "bottom", -- or "top"
+            preview_width = 0.5,
+            width = 0.8,
+            height = 0.8,
+            -- ...
+          },
+        },
+        -- You can configure individual pickers here as well
+        pickers = {
+          live_grep = {
+            -- Specific settings for live_grep, overrides defaults
+          },
+          find_files = {
+            -- Specific settings for find_files
+          },
+        },
+        extensions = {
+          -- For example, if you want a live grep that allows passing arguments to rg
+          -- "nvim-telescope/telescope-live-grep-args.nvim"
+          -- require("telescope").load_extension("live_grep_args")
+        },
+      }
+      -- Load extensions if you add them
+      -- require("telescope").load_extension("live_grep_args")
+    end,
+    keys = {
+      -- <leader>ff for finding files
+      {
+        "<leader>ff",
+        function()
+          builtin.find_files {
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" },
+          }
+        end,
+        desc = "Find Files",
+      },
+      -- <leader>fg for live grep (project-wide search)
+      { "<leader>fg", function() builtin.live_grep() end, desc = "Live Grep (Project Search)" },
+      -- Optional: search for the word under the cursor
+      {
+        "<leader>fsw",
+        function() builtin.live_grep { default_text = vim.fn.expand "<cword>" } end,
+        desc = "Search Word Under Cursor",
+      },
+      -- Optional: search for visual selection
+      {
+        "<leader>fsv",
+        function() builtin.live_grep { default_text = vim.fn.getreg '"' } end,
+        mode = "x",
+        desc = "Search Visual Selection",
       },
     },
   },

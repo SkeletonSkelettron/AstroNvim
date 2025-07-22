@@ -3,7 +3,7 @@ return {
   servers = {
     clangd = {
       cmd = { "clangd", "--background-index" }, -- optional custom args
-      filetypes = { "c", "cpp", "objc", "objcpp" },
+      filetypes = { "c", "cpp", "cxx", "h", "hpp", "hxx", "objc", "objcpp" },
     },
     angularls = {
         -- Make sure it attaches to the correct filetypes
