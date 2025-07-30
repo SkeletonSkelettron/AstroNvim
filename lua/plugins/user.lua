@@ -250,28 +250,28 @@ return {
       end
     end,
   },
-  {
-    "wfxr/minimap.vim",
-    -- Recommended settings to start with
-    config = function()
-      -- Set the default width of the minimap (e.g., 10 characters)
-      vim.g.minimap_width = 10
-      -- Hide the minimap by default on startup
-      vim.g.minimap_auto_start = 0
-      -- Do not show it in terminals
-      vim.g.minimap_excluded_filetypes = { "NvimTree", "lazy", "TelescopePrompt", "Trouble", "terminal" }
-      -- Optional: Smooth scrolling of the minimap (requires 'nvim-tree.lua' setup or similar if not there)
-      -- vim.g.minimap_smooth_scroll = 1
+--   {
+--     "wfxr/minimap.vim",
+--     -- Recommended settings to start with
+--     config = function()
+--       -- Set the default width of the minimap (e.g., 10 characters)
+--       vim.g.minimap_width = 10
+--       -- Hide the minimap by default on startup
+--       vim.g.minimap_auto_start = 0
+--       -- Do not show it in terminals
+--       vim.g.minimap_excluded_filetypes = { "NvimTree", "lazy", "TelescopePrompt", "Trouble", "terminal" }
+--       -- Optional: Smooth scrolling of the minimap (requires 'nvim-tree.lua' setup or similar if not there)
+--       -- vim.g.minimap_smooth_scroll = 1
 
-      -- Optional: Keymaps to toggle or interact with the minimap
-      -- You can add these to your 'user/keymaps.lua' or inside this config function
-      vim.cmd [[
-        nnoremap <leader>mm :MinimapToggle<CR>
-        nnoremap <leader>mo :MinimapOpen<CR>
-        nnoremap <leader>mc :MinimapClose<CR>
-      ]]
-    end,
-  },
+--       -- Optional: Keymaps to toggle or interact with the minimap
+--       -- You can add these to your 'user/keymaps.lua' or inside this config function
+--       vim.cmd [[
+--         nnoremap <leader>mm :MinimapToggle<CR>
+--         nnoremap <leader>mo :MinimapOpen<CR>
+--         nnoremap <leader>mc :MinimapClose<CR>
+--       ]]
+--     end,
+--   },
 
 
   -- {
@@ -327,50 +327,17 @@ return {
       -- vim.cmd "colorscheme jb"
     end,
   },
-  -- GitHub Copilot plugin
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   build = ":Copilot auth", -- Automatically run :Copilot auth on first install
-  --   event = "BufReadPost",
-  --   opts = {
-  --     suggestion = { enabled = false }, -- Disable Copilot's own inline suggestions
-  --     panel = { enabled = false }, -- Disable Copilot's own suggestion panel
-  --   },
-  -- },
-  --
-  -- -- Integration for nvim-cmp with Copilot
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   dependencies = { "zbirenbaum/copilot.lua" }, -- Ensure copilot.lua is loaded first
-  --   config = function() require("copilot_cmp").setup {} end,
-  -- },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      if opts.sources == nil then opts.sources = {} end
-
-      table.insert(opts.sources, 1, {
-        name = "copilot",
-        group_index = 1,
-        priority = 100,
-      })
-      -- Also include the <Tab> keybinding configuration from step 3 above if desired.
-      -- opts.mapping["<Tab>"] = cmp.mapping(function(fallback) ... end)
-    end,
-  },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      -- { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-    },
-    build = "make tiktoken", -- Only on MacOS or Linux
-    opts = {
-      -- See Configuration section for options
-    },
-    -- See Commands section for default commands if you want to lazy load on them
-  },
+{
+  "zbirenbaum/copilot.lua",
+  cmd = "Copilot",
+  event = "InsertEnter",
+  config = function()
+    require("copilot").setup({
+      suggestion = { enabled = true }, -- You might disable these if using nvim-cmp
+      panel = { enabled = true },      -- or if CopilotChat.nvim handles the UI
+    })
+  end,
+},
   {
     "folke/lazy.nvim", -- We leverage lazy.nvim's 'config' for general settings
     opts = {

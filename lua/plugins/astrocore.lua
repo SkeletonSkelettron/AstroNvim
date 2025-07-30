@@ -38,17 +38,39 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
+        mouse = "a",
         relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        guifont = "JetBrainsMono Nerd Font:h10.5",
+        -- You might also want to set linespace for better visual spacing
+        linespace = 0,
       },
-      g = { -- vim.g.<key>
-        -- configure global vim variables (vim.g)
-        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
-        -- This can be found in the `lua/lazy_setup.lua` file
-      },
+        g = {
+          -- Neovide specific global variables
+          neovide_opacity = 1.0, -- Example: slightly transparent
+          neovide_scale_factor = 1.0,
+          neovide_remember_window_size = true,
+          neovide_confirm_quit = true,
+          neovide_cursor_animation_length = 0.02,
+          neovide_scroll_animation_length = 0.6,
+          neovide_hide_mouse_when_typing = true,
+          neovide_scroll_animation_far_lines = 1,
+          neovide_cursor_hack = true,
+          neovide_font_edging = "subpixelantialiased",
+          neovide_font_hinting = "full",
+          neovide_text_gamma = 0.8,
+          neovide_text_contrast = 0.2,
+        --   neovide_cursor_vfx_mode = "ripple",
+        --   neovide_cursor_vfx_opacity = 200,
+        --   neovide_cursor_vfx_particle_lifetime = 1.0,
+        --   neovide_cursor_vfx_particle_density = 7.0,
+        --   neovide_cursor_vfx_particle_speed = 10.0,
+        --   neovide_cursor_vfx_particle_color = "#91c5e4ff",
+        --   neovide_cursor_vfx_particle_shape = "line",
+        },
     },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
