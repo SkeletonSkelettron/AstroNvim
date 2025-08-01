@@ -84,28 +84,7 @@ return {
     end,
   },
 
---   {
---     "sindrets/diffview.nvim",
---     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
---     event = "BufReadPost", -- Or "VeryLazy"
---     config = function()
---       require("diffview").setup {
---         -- Your diffview.nvim configuration options can go here
---         -- Example: To set default layout or other preferences
---         -- view = {
---         --   default = {
---         --     layout = "diff2_vertical", -- 'diff2_horizontal', 'diff3_vertical', 'diff3_horizontal'
---         --   },
---         -- },
---         -- file_panel = {
---         --   win_config = {
---         --     position = "left", -- 'left', 'right'
---         --     width = 30,
---         --   },
---         -- },
---       }
---     end,
---   },
+ 
 
   {
     "rcarriga/nvim-dap-ui",
@@ -135,44 +114,7 @@ return {
       "codelldb", -- For C/C++ (if you want to keep it)
     },
   },
-  -- {
-  --   "lewis6991/gitsigns.nvim",
-  --   -- Optional: Add configuration for gitsigns.nvim here
-  --   -- This 'opts' table will be passed to require("gitsigns").setup()
-  --   opts = {
-  --     -- Customize keymaps (optional)
-  --     signs = {
-  --       add = { text = "▎" },
-  --       change = { text = "▎" },
-  --       delete = { text = "✖" },
-  --       topdelete = { text = "⇧" },
-  --       changedelete = { text = "▎" },
-  --     },
-  --     on_attach = function(bufnr)
-  --       -- Keymaps for Gitsigns actions (optional, but recommended)
-  --       local gs = require "gitsigns"
-  --       local map = vim.keymap.set
-  --       local bufopts = { silent = true, buffer = bufnr }
-  --
-  --       map("n", "]h", function() gs.nav_hunk "next" end, bufopts)
-  --       map("n", "[h", function() gs.nav_hunk "prev" end, bufopts)
-  --       map("n", "<leader>hs", gs.stage_hunk, bufopts)
-  --       map("n", "<leader>hr", gs.reset_hunk, bufopts)
-  --       map("v", "<leader>hs", function() gs.stage_hunk { vim.fn.line ".", vim.fn.line "v" } end, bufopts)
-  --       map("v", "<leader>hr", function() gs.reset_hunk { vim.fn.line ".", vim.fn.line "v" } end, bufopts)
-  --       map("n", "<leader>hS", gs.stage_buffer, bufopts)
-  --       map("n", "<leader>hu", gs.reset_hunk, { vim.fn.line ".", vim.fn.line "v" })
-  --       map("n", "<leader>hR", gs.reset_buffer, bufopts)
-  --       map("n", "<leader>hp", gs.preview_hunk, bufopts)
-  --       map("n", "<leader>hb", function() gs.blame_line { full = true } end, bufopts)
-  --       map("n", "<leader>hd", gs.diffthis, bufopts)
-  --       map("n", "<leader>hD", function() gs.diffthis "~" end, bufopts)
-  --       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", bufopts)
-  --     end,
-  --   },
-  --   -- The 'config' function runs the setup
-  --   config = function(_, opts) require("gitsigns").setup(opts) end,
-  -- },
+ 
   {
     "mfussenegger/nvim-dap",
     -- Add other DAP-related dependencies here if they are not already managed by AstroNvim's core
@@ -193,21 +135,7 @@ return {
       --require("dap").set(vim.fn.expand "~/dap_debug.log")
     end,
   },
-  -- {
-  --   "3rd/image.nvim",
-  --   opts = {
-  --     backend = "kitty", -- or "ueberzug" for Linux
-  --     integrations = {
-  --       markdown = {
-  --         enabled = true,
-  --         clear_in_insert_mode = false,
-  --         download_remote_images = true,
-  --         only_render_image_at_cursor = false,
-  --         filetypes = { "markdown", "vimwiki" },
-  --       },
-  --     },
-  --   },
-  -- },
+ 
   {
     "karb94/neoscroll.nvim",
     opts = {
@@ -250,50 +178,7 @@ return {
       end
     end,
   },
---   {
---     "wfxr/minimap.vim",
---     -- Recommended settings to start with
---     config = function()
---       -- Set the default width of the minimap (e.g., 10 characters)
---       vim.g.minimap_width = 10
---       -- Hide the minimap by default on startup
---       vim.g.minimap_auto_start = 0
---       -- Do not show it in terminals
---       vim.g.minimap_excluded_filetypes = { "NvimTree", "lazy", "TelescopePrompt", "Trouble", "terminal" }
---       -- Optional: Smooth scrolling of the minimap (requires 'nvim-tree.lua' setup or similar if not there)
---       -- vim.g.minimap_smooth_scroll = 1
-
---       -- Optional: Keymaps to toggle or interact with the minimap
---       -- You can add these to your 'user/keymaps.lua' or inside this config function
---       vim.cmd [[
---         nnoremap <leader>mm :MinimapToggle<CR>
---         nnoremap <leader>mo :MinimapOpen<CR>
---         nnoremap <leader>mc :MinimapClose<CR>
---       ]]
---     end,
---   },
-
-
-  -- {
-  --   "projekt0n/github-nvim-theme",
-  --   lazy = false, -- Load immediately on startup
-  --   priority = 1000, -- Give it a high priority
-  --   config = function()
-  --     require("github-theme").setup {
-  --       theme_style = "light", -- Crucial: Set to "light" for GitHub Light
-  --       transparent = false,
-  --       hide_inactive_statusline = false,
-  --       function_style = "italic",
-  --       comment_style = "italic",
-  --       keyword_style = "bold",
-  --       variable_style = "bold",
-  --       -- You can explore more options in the plugin's documentation
-  --       -- like integrations with other plugins (nvim-tree, cmp, etc.)
-  --       -- Check https://github.com/projekt0n/github-nvim-theme
-  --     }
-  --   end,
-  -- },
-  --
+ 
 
   {
     "neovim/nvim-lspconfig",
@@ -344,53 +229,25 @@ return {
       init = function()
         -- Your existing global Neovim options would be here, like:
         -- vim.opt.number = true
-        vim.opt.relativenumber = false
-        -- vim.opt.tabstop = 4
-        -- ...
-
-        -- Add the clipboard setting here
-        vim.opt.clipboard = "unnamedplus"
-        -- Your existing global keymaps might also be here, like:
-        vim.opt.timeoutlen = 300 -- Shorter timeout for key sequences, can make mappings feel snappier
-
-        vim.keymap.set("i", "<C-Left>", "<C-o>b", { silent = true, desc = "Move word left" })
-        vim.keymap.set("i", "<C-Right>", "<C-o>w", { silent = true, desc = "Move word right" })
-
-        vim.keymap.set("i", "<C-Home>", "<C-o>0", { silent = true, desc = "Go to start of line" })
-        vim.keymap.set("i", "<C-End>", "<C-o>$", { silent = true, desc = "Go to end of line" })
-        vim.keymap.set(
-          "i",
-          "<C-c>",
-          "<C-o>y",
-          { silent = true, desc = "Copy current selection/line (Normal mode command)" }
-        )
-        vim.keymap.set("i", "<C-x>", "<C-o>d", { silent = true, desc = "Cut (delete) selection/line" })
-        vim.keymap.set("i", "<C-v>", "<C-r>+", { silent = true, desc = "Paste from system clipboard" })
-        vim.keymap.set("i", "<C-z>", "<C-o>u", { silent = true, desc = "Undo" })
-        vim.keymap.set("i", "<C-y>", "<C-o><C-r>", { silent = true, desc = "Redo (Ctrl+r in Normal mode)" }) -- Standard Vim redo
-        vim.keymap.set("i", "<C-Del>", "<C-o>dw", { silent = true, desc = "Delete word forward" })
-        vim.keymap.set("i", "<C-a>", "<Esc>ggVG<CR>", { silent = true, desc = "Select all (exits insert mode)" })
-        vim.keymap.set("i", "<C-t>", "<C-o>>>", { silent = true, desc = "Indent current line" }) -- `>>` in Normal mode
-        vim.keymap.set("i", "<C-d>", "<C-o><<", { silent = true, desc = "Outdent current line" }) -- `<<` in Normal mode
       end,
     },
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
-    main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {
-      indent = {
-        char = "", -- Change character
-        highlight = "Comment", -- Make them dimmer
-      },
-      scope = {
-        enabled = false, -- Disable scope highlighting
-      },
-    },
-  },
+--   {
+--     "lukas-reineke/indent-blankline.nvim",
+--     enabled = true,
+--     main = "ibl",
+--     ---@module "ibl"
+--     ---@type ibl.config
+--     opts = {
+--       indent = {
+--         char = "", -- Change character
+--         highlight = "Comment", -- Make them dimmer
+--       },
+--       scope = {
+--         enabled = false, -- Disable scope highlighting
+--       },
+--     },
+--   },
   {
     "akinsho/toggleterm.nvim",
     version = "*", -- Use the latest stable release
@@ -419,114 +276,5 @@ return {
       { "<leader>tg", function() require("toggleterm").toggle(2) end, desc = "Toggle Git terminal" },
     },
   },
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.8", -- or tag = "0.1.x" for stable, or use branch = "master" for latest
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required by Telescope
-      "BurntSushi/ripgrep", -- You need ripgrep installed globally for Telescope's live_grep
-    },
-    config = function()
-      local telescope = require "telescope"
-      local actions = require "telescope.actions"
-      local builtin = require "telescope.builtin"
-
-      telescope.setup {
-        defaults = {
-          -- Your general Telescope settings
-          vimgrep_arguments = {
-            "rg",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case",
-            "--hidden", -- Search hidden files/directories
-            "--glob",
-            "!**/.git/*", -- Ignore .git directory
-            "--glob",
-            "!**/node_modules/*", -- Ignore node_modules
-            -- Add more --glob patterns to exclude directories you don't want to search
-          },
-          -- Keybindings for the results pane
-          mappings = {
-            i = {
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-j>"] = actions.move_selection_next,
-              ["<CR>"] = actions.select_default, -- Opens file
-              ["<C-x>"] = actions.select_horizontal, -- Opens in horizontal split
-              ["<C-v>"] = actions.select_vertical, -- Opens in vertical split
-              ["<C-t>"] = actions.select_tab, -- Opens in new tab
-            },
-            n = {
-              ["<CR>"] = actions.select_default,
-              ["<C-x>"] = actions.select_horizontal,
-              ["<C-v>"] = actions.select_vertical,
-              ["<C-t>"] = actions.select_tab,
-            },
-          },
-          -- Configure the preview window
-          preview = {
-            -- Options for the preview window (like width, height, etc.)
-            -- You can make it hide by default and toggle with a key
-            layout = "vertical", -- or "horizontal" for preview on right/left
-            width = 0.5, -- e.g., preview takes 50% of the window
-            -- Other options: buffer_previewer_maker, vim_diff_previewer_maker
-          },
-          -- Optional: customize layouts
-          layout_config = {
-            prompt_position = "bottom", -- or "top"
-            preview_width = 0.5,
-            width = 0.8,
-            height = 0.8,
-            -- ...
-          },
-        },
-        -- You can configure individual pickers here as well
-        pickers = {
-          live_grep = {
-            -- Specific settings for live_grep, overrides defaults
-          },
-          find_files = {
-            -- Specific settings for find_files
-          },
-        },
-        extensions = {
-          -- For example, if you want a live grep that allows passing arguments to rg
-          -- "nvim-telescope/telescope-live-grep-args.nvim"
-          -- require("telescope").load_extension("live_grep_args")
-        },
-      }
-      -- Load extensions if you add them
-      -- require("telescope").load_extension("live_grep_args")
-    end,
-    keys = {
-      -- <leader>ff for finding files
-      {
-        "<leader>ff",
-        function()
-          builtin.find_files {
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" },
-          }
-        end,
-        desc = "Find Files",
-      },
-      -- <leader>fg for live grep (project-wide search)
-      { "<leader>fg", function() builtin.live_grep() end, desc = "Live Grep (Project Search)" },
-      -- Optional: search for the word under the cursor
-      {
-        "<leader>fsw",
-        function() builtin.live_grep { default_text = vim.fn.expand "<cword>" } end,
-        desc = "Search Word Under Cursor",
-      },
-      -- Optional: search for visual selection
-      {
-        "<leader>fsv",
-        function() builtin.live_grep { default_text = vim.fn.getreg '"' } end,
-        mode = "x",
-        desc = "Search Visual Selection",
-      },
-    },
-  },
+  
 }

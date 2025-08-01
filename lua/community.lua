@@ -12,6 +12,7 @@ return {
   { import = "user.plugins.gitsigns" },
   { import = "user.plugins.copilot-chat" },
   { import = "user.plugins.nvim-scrollview" },
-  -- { import = "user.plugins.neoscroll" },
-  --{ import = "astrocommunity.editing-support.copilotchat-nvim" }, neoscroll
+  { import = "user.plugins.neoscroll" },
+  { import = "user.plugins.telescope" },
+  --{ import = "astrocommunity.editing-support.copilotchat-nvim" },
 }
