@@ -14,5 +14,10 @@ return {
   { import = "user.plugins.nvim-scrollview" },
   { import = "user.plugins.neoscroll" },
   { import = "user.plugins.telescope" },
+  { import = "user.plugins.vim-commentary" },
+  { import = "user.plugins.vscode" },
+  { import = "user.plugins.dashboard" },
+  { import = "user.plugins.trouble" },
+  { import = "user.plugins.overseer" },
   --{ import = "astrocommunity.editing-support.copilotchat-nvim" },
 }

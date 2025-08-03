@@ -19,8 +19,10 @@ return {
   -- customize dashboard options
   {
     "folke/snacks.nvim",
+    enabled = true,
     opts = {
       dashboard = {
+        enabled = false,
         preset = {
           header = table.concat({
             " █████  ███████ ████████ ██████   ██████ ",
@@ -36,6 +38,12 @@ return {
             "██   ████   ████   ██ ██      ██",
           }, "\n"),
         },
+        bigfile = { enabled = true },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
+        statuscolumn = { enabled = true },
+        words = { enabled = true },
+        styles = { enabled = true },
       },
     },
   },
@@ -84,8 +92,6 @@ return {
     end,
   },
 
- 
-
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
@@ -114,7 +120,7 @@ return {
       "codelldb", -- For C/C++ (if you want to keep it)
     },
   },
- 
+
   {
     "mfussenegger/nvim-dap",
     -- Add other DAP-related dependencies here if they are not already managed by AstroNvim's core
@@ -135,50 +141,6 @@ return {
       --require("dap").set(vim.fn.expand "~/dap_debug.log")
     end,
   },
- 
-  {
-    "karb94/neoscroll.nvim",
-    opts = {
-      -- Default options (you can adjust these)
-      hide_cursor = true, -- Hide cursor while scrolling
-      stop_eof = true, -- Stop scrolling at EOF (end of file)
-      respect_scrolloff = false, -- Respect 'scrolloff' option
-      easing_function = nil, -- Custom easing function, or nil for default
-    },
-    config = function(_, opts)
-      require("neoscroll").setup(opts)
-
-      -- Set up the key mappings with correct syntax
-      local neoscroll = require "neoscroll"
-
-      -- Define custom key mappings
-      local keymap = {
-        -- Standard scrolling motions
-        ["<C-u>"] = function() neoscroll.ctrl_u { duration = 250 } end,
-        ["<C-d>"] = function() neoscroll.ctrl_d { duration = 250 } end,
-        ["<C-b>"] = function() neoscroll.ctrl_b { duration = 450 } end,
-        ["<C-f>"] = function() neoscroll.ctrl_f { duration = 450 } end,
-
-        -- Custom arrow key mappings
-        ["<C-Down>"] = function() neoscroll.scroll(2, true, 100) end,
-        ["<C-Up>"] = function() neoscroll.scroll(-2, true, 100) end,
-
-        -- Mouse wheel scrolling
-        -- ["<ScrollWheelUp>"] = function() neoscroll.scroll(-3, true, 50) end,
-        -- ["<ScrollWheelDown>"] = function() neoscroll.scroll(3, true, 50) end,
-
-        -- Line by line scrolling (uncomment if you want smooth j/k)
-        -- ["j"] = function() neoscroll.scroll(1, true, 50) end,
-        -- ["k"] = function() neoscroll.scroll(-1, true, 50) end,
-      }
-
-      local modes = { "n", "v", "x" }
-      for key, func in pairs(keymap) do
-        vim.keymap.set(modes, key, func)
-      end
-    end,
-  },
- 
 
   {
     "neovim/nvim-lspconfig",
@@ -212,17 +174,17 @@ return {
       -- vim.cmd "colorscheme jb"
     end,
   },
-{
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  event = "InsertEnter",
-  config = function()
-    require("copilot").setup({
-      suggestion = { enabled = true }, -- You might disable these if using nvim-cmp
-      panel = { enabled = true },      -- or if CopilotChat.nvim handles the UI
-    })
-  end,
-},
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        suggestion = { enabled = true }, -- You might disable these if using nvim-cmp
+        panel = { enabled = true }, -- or if CopilotChat.nvim handles the UI
+      }
+    end,
+  },
   {
     "folke/lazy.nvim", -- We leverage lazy.nvim's 'config' for general settings
     opts = {
@@ -232,22 +194,22 @@ return {
       end,
     },
   },
---   {
---     "lukas-reineke/indent-blankline.nvim",
---     enabled = true,
---     main = "ibl",
---     ---@module "ibl"
---     ---@type ibl.config
---     opts = {
---       indent = {
---         char = "", -- Change character
---         highlight = "Comment", -- Make them dimmer
---       },
---       scope = {
---         enabled = false, -- Disable scope highlighting
---       },
---     },
---   },
+  --   {
+  --     "lukas-reineke/indent-blankline.nvim",
+  --     enabled = true,
+  --     main = "ibl",
+  --     ---@module "ibl"
+  --     ---@type ibl.config
+  --     opts = {
+  --       indent = {
+  --         char = "", -- Change character
+  --         highlight = "Comment", -- Make them dimmer
+  --       },
+  --       scope = {
+  --         enabled = false, -- Disable scope highlighting
+  --       },
+  --     },
+  --   },
   {
     "akinsho/toggleterm.nvim",
     version = "*", -- Use the latest stable release
@@ -276,5 +238,4 @@ return {
       { "<leader>tg", function() require("toggleterm").toggle(2) end, desc = "Toggle Git terminal" },
     },
   },
-  
 }

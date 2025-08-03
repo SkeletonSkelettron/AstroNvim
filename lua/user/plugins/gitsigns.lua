@@ -1,4 +1,4 @@
- -- ~/.config/nvim/lua/plugins/gitsigns.lua
+-- ~/.config/nvim/lua/user/plugins/gitsigns.lua
 return {
   {
     "lewis6991/gitsigns.nvim",
@@ -7,7 +7,7 @@ return {
     },
     config = function(_, opts)
       require("gitsigns").setup(opts)
-      local gs = require("gitsigns")
+      local gs = require "gitsigns"
       local map = vim.keymap.set
       local bufopts = { silent = true, buffer = vim.api.nvim_get_current_buf() }
 
