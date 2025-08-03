@@ -65,16 +65,16 @@ return {
         ["@lsp.mod.classScope.cpp"] = { fg = "#0018BD", bold = false },
         ["@lsp.typemod.property.classScope.cpp"] = { fg = "#0018BD" },
         ["@lsp.typemod.property.defaultLibrary.cpp"] = { fg = "#0018BD" },
-        ["cppString"] = { fg = "#A31515", bold = false },
+        ["cppString"] = { bold = false },
         ["cType"] = { fg = "#0000FF", bold = false },
 
         -- CORRECT comment highlight groups
-        ["Comment"] = { fg = "#008000" }, -- Base comment group
-        ["@comment"] = { fg = "#008000" }, -- Tree-sitter comments
-        ["cCommentL"] = { fg = "#008000" }, -- C line comments
-        ["cComment"] = { fg = "#008000" }, -- C block comments
-        ["@comment.line"] = { fg = "#008000" }, -- Tree-sitter line comments
-        ["@comment.block"] = { fg = "#008000" }, -- Tree-sitter block comments
+        ["Comment"] = { fg = "#006100" }, -- Base comment group
+        ["@comment"] = { fg = "#006100" }, -- Tree-sitter comments
+        ["cCommentL"] = { fg = "#006100" }, -- C line comments
+        ["cComment"] = { fg = "#006100" }, -- C block comments
+        ["@comment.line"] = { fg = "#006100" }, -- Tree-sitter line comments
+        ["@comment.block"] = { fg = "#006100" }, -- Tree-sitter block comments
 
         -- Add these for #include preprocessing directives
         ["PreProc"] = { fg = "#AF00DB" }, -- Base preprocessor group
