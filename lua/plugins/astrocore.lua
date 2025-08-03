@@ -58,7 +58,7 @@ return {
         neovide_remember_window_size = true,
         neovide_confirm_quit = true,
         neovide_cursor_animation_length = 0.02,
-        neovide_scroll_animation_length = 0.6,
+        neovide_scroll_animation_length = 0.15,
         neovide_hide_mouse_when_typing = true,
         neovide_scroll_animation_far_lines = 1,
         neovide_cursor_hack = true,
