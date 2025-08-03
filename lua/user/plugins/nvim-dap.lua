@@ -1,4 +1,4 @@
--- ~/.config/nvim/lua/user/plugins/configs/nvim-dap.lua
+-- ~/.config/nvim/lua/user/plugins/nvim-dap.lua
 
 -- Import the nvim-dap module
 local dap = require "dap"

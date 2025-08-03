@@ -20,7 +20,7 @@ return {
       },
       custom_highlights = {
         -- Variable field access (variable->field, variable.field)
-        ["VariableField"] = { fg = "#001080" },
+        ["VariableField"] = { fg = "#0018BD" },
 
         -- Boolean values (true, false)
         ["Boolean"] = { fg = "#0000FF" }, -- Base boolean group
@@ -38,17 +38,17 @@ return {
         ["@keyword.conditional"] = { fg = "#AF00DB", bold = false },
         ["cConditional"] = { fg = "#AF00DB", bold = false },
 
-        ["@lsp.typemod.function.globalScope.cpp"] = { fg = "#74531f", bold = false },
-        ["@lsp.type.function.cpp"] = { fg = "#74531f", bold = false },
-        ["@lsp.typemod.function.defaultLibrary.cpp"] = { fg = "#74531f", bold = false },
+        ["@lsp.typemod.function.globalScope.cpp"] = { fg = "#BA7E25", bold = false },
+        ["@lsp.type.function.cpp"] = { fg = "#BA7E25", bold = false },
+        ["@lsp.typemod.function.defaultLibrary.cpp"] = { fg = "#BA7E25", bold = false },
         ["@lsp.typemod.class.defaultLibrary.cpp"] = { fg = "#3879c5", bold = false },
         ["@lsp.typemod.class.globalScope.cpp"] = { fg = "#3879c5", bold = false },
         ["@lsp.mod.globalScope.cpp"] = { fg = "#3879c5", bold = false },
-        ["@lsp.typemod.method.defaultLibrary.cpp"] = { fg = "#74531f", bold = false },
-        ["@function.method"] = { fg = "#74531f", bold = false },
-        ["@lsp.typemod.method.readonly.cpp"] = { fg = "#74531f", bold = false },
-        ["@lsp.typemod.method.classScope.cpp"] = { fg = "#74531f", bold = false },
-        ["@lsp.type.method.cpp"] = { fg = "#74531f", bold = false },
+        ["@lsp.typemod.method.defaultLibrary.cpp"] = { fg = "#BA7E25", bold = false },
+        ["@function.method"] = { fg = "#BA7E25", bold = false },
+        ["@lsp.typemod.method.readonly.cpp"] = { fg = "#BA7E25", bold = false },
+        ["@lsp.typemod.method.classScope.cpp"] = { fg = "#BA7E25", bold = false },
+        ["@lsp.type.method.cpp"] = { fg = "#BA7E25", bold = false },
 
         ["@constructor"] = { fg = "#0000FF" },
         ["Number"] = { fg = "#0000FF" },
@@ -56,15 +56,15 @@ return {
         ["@type.builtin"] = { fg = "#0000FF" },
         ["@lsp.typemod.type.defaultLibrary.cpp"] = { fg = "#0000FF", bold = false },
         ["@lsp.mod.defaultLibrary.cpp"] = { fg = "#267F99", bold = false },
-        ["@lsp.type.variable.cpp"] = { fg = "#001080", bold = false },
+        ["@lsp.type.variable.cpp"] = { fg = "#0018BD", bold = false },
 
         -- C++ property/field access highlighting
-        ["@property"] = { fg = "#001080", bold = false },
+        ["@property"] = { fg = "#0018BD", bold = false },
 
-        ["@lsp.type.property.cpp"] = { fg = "#001080", bold = false },
-        ["@lsp.mod.classScope.cpp"] = { fg = "#001080", bold = false },
-        ["@lsp.typemod.property.classScope.cpp"] = { fg = "#001080" },
-        ["@lsp.typemod.property.defaultLibrary.cpp"] = { fg = "#001080" },
+        ["@lsp.type.property.cpp"] = { fg = "#0018BD", bold = false },
+        ["@lsp.mod.classScope.cpp"] = { fg = "#0018BD", bold = false },
+        ["@lsp.typemod.property.classScope.cpp"] = { fg = "#0018BD" },
+        ["@lsp.typemod.property.defaultLibrary.cpp"] = { fg = "#0018BD" },
         ["cppString"] = { fg = "#A31515", bold = false },
         ["cType"] = { fg = "#0000FF", bold = false },
 
@@ -105,11 +105,11 @@ return {
       vim.api.nvim_set_hl(0, "cConditional", { fg = "#AF00DB", bold = false })
 
       -- Force LSP property highlights
-      vim.api.nvim_set_hl(0, "@property", { fg = "#001080" })
-      vim.api.nvim_set_hl(0, "@lsp.type.property.cpp", { fg = "#001080" })
-      vim.api.nvim_set_hl(0, "@lsp.mod.classScope.cpp", { fg = "#001080" })
-      vim.api.nvim_set_hl(0, "@lsp.typemod.property.classScope.cpp", { fg = "#001080" })
-      vim.api.nvim_set_hl(0, "@lsp.typemod.property.defaultLibrary.cpp", { fg = "#001080" })
+      vim.api.nvim_set_hl(0, "@property", { fg = "#0018BD" })
+      vim.api.nvim_set_hl(0, "@lsp.type.property.cpp", { fg = "#0018BD" })
+      vim.api.nvim_set_hl(0, "@lsp.mod.classScope.cpp", { fg = "#0018BD" })
+      vim.api.nvim_set_hl(0, "@lsp.typemod.property.classScope.cpp", { fg = "#0018BD" })
+      vim.api.nvim_set_hl(0, "@lsp.typemod.property.defaultLibrary.cpp", { fg = "#0018BD" })
     end)
   end,
 }
