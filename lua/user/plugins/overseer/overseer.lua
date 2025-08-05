@@ -1,10 +1,10 @@
--- ~/.config/nvim/lua/user/plugins/overseer.lua
+-- ~/.config/nvim/lua/user/plugins/overseer/overseer.lua
 
 return {
   {
     'stevearc/overseer.nvim',
     opts = {
-      templates = { "builtin", "user.cpp_build", "user.run_script" },
+      templates = { "builtin", "user.cmake" },
       strategy = {
         "toggleterm",
         direction = "horizontal",

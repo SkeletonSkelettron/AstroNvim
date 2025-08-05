@@ -48,6 +48,18 @@ return {
             action = "Telescope dotfiles",
             key = "d",
           },
+          {
+            icon = "󰈔",
+            desc = " Open existing project",
+            action = function()
+              -- Use the file_browser extension for hierarchical navigation
+              require("telescope").extensions.file_browser.file_browser {
+                cwd = "~/Projects", -- The directory to start Browse from
+                prompt_title = "Browse Projects",
+              }
+            end,
+            key = "o",
+          },
         },
       },
     }

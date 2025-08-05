@@ -7,6 +7,23 @@ return {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
+  extensions = {
+    file_browser = {
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          ["<C-w>"] = function(prompt_bufnr)
+            require("telescope._extensions.file_browser.actions").change_cwd(prompt_bufnr)
+          end,
+        },
+        ["n"] = {
+          ["cd"] = function(prompt_bufnr)
+            require("telescope._extensions.file_browser.actions").change_cwd(prompt_bufnr)
+          end,
+        },
+      },
+    },
+  },
   config = function()
     -- This is where we set up Telescope
     local builtin = require "telescope.builtin"
@@ -29,7 +46,6 @@ return {
         },
       },
     }
-
     -- Load the fzf-native extension
     require("telescope").load_extension "fzf"
   end,

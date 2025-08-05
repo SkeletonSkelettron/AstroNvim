@@ -47,7 +47,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
-        guifont = "JetBrainsMono Nerd Font:h10.5",
+        guifont = "JetBrainsMono Nerd Font:h10",
         -- You might also want to set linespace for better visual spacing
         linespace = 0,
       },
@@ -65,7 +65,8 @@ return {
         neovide_font_edging = "subpixelantialiased",
         neovide_font_hinting = "full",
         neovide_text_gamma = 0.8,
-        neovide_text_contrast = 0.2,
+        neovide_text_contrast = 0.4,
+
         --   neovide_cursor_vfx_mode = "ripple",
         --   neovide_cursor_vfx_opacity = 200,
         --   neovide_cursor_vfx_particle_lifetime = 1.0,
@@ -324,7 +325,7 @@ return {
         ["<F9>"] = { "<ESC>o", desc = "New line below (fallback)", silent = true },
 
         -- Mouse mappings
-        ["<RightMouse>"] = { "yi", desc = "Copy selection", silent = true },
+        -- ["<RightMouse>"] = { "yi", desc = "Copy selection", silent = true },
       },
     },
   },
