@@ -213,6 +213,7 @@ return {
         ["<C-Down>"] = { "<C-o><C-e>", desc = "Scroll down", silent = true },
 
         -- Block selection
+        ["<C-a>"] = { "<Esc>ggVG", desc = "Select all", silent = true },
         ["<C-S-Up>"] = { "<C-o><C-v>k", desc = "Block select up", silent = true },
         ["<C-S-Down>"] = { "<C-o><C-v>j", desc = "Block select down", silent = true },
         ["<F8>"] = { "<C-o><C-v>k", desc = "Block select up (fallback)", silent = true },
@@ -224,7 +225,7 @@ return {
         ["<F9>"] = { "<C-o>o", desc = "New line below (fallback)", silent = true },
 
         -- Text selection with Shift+Arrow
-        ["<S-Up>"] = { "<left><C-o>vk", desc = "Select up", silent = true },
+        ["<S-Up>"] = { function() vim.cmd "normal! ggVG" end, desc = "Select up", silent = true },
         ["<S-Down>"] = { "<C-o>vj", desc = "Select down", silent = true },
         ["<S-left>"] = { "<left><C-o>v", desc = "Select left", silent = true },
         ["<S-right>"] = { "<C-o>v", desc = "Select right", silent = true },
