@@ -12,9 +12,15 @@ if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
     vim.cmd.quit()
   end
 end
+-- if vim.g.neovide then
+--   -- This might work, but can be inconsistent depending on the font and OS.
+--   -- Ensure the font name is the exact name as registered on your system.
+--   vim.o.guifont = "JetBrainsMono Nerd Font Light:h10"
+-- end
 
 vim.opt.rtp:prepend(lazypath)
-
+vim.opt.guicursor = "n-v-c:block"
+vim.opt.guicursor = "i:ver25"
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore
