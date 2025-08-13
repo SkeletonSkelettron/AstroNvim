@@ -92,75 +92,58 @@ return {
     end,
   },
 
-{
-  "rcarriga/nvim-dap-ui",
-  event = "VeryLazy",
-  dependencies = "mfussenegger/nvim-dap",
-  config = function()
-    local dap = require("dap")
-    local dapui = require("dapui")
+  {
+    "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require "dap"
+      local dapui = require "dapui"
 
-    -- Helper to float console after delay
-    local function float_console_delayed()
-      vim.defer_fn(function()
-        dapui.float_element("console", { enter = false })
-      end, 100)
-    end
+      -- Helper to float console after delay
+      local function float_console_delayed()
+        vim.defer_fn(function() dapui.float_element("console", { enter = false }) end, 100)
+      end
 
-    dapui.setup({
-      layouts = {
-        {
-          elements = {
-            { id = "scopes", size = 0.25 },
-            { id = "breakpoints", size = 0.25 },
-            { id = "stacks", size = 0.25 },
-            { id = "watches", size = 0.25 },
-            { id = "repl", size = 0.25 },
+      dapui.setup {
+        layouts = {
+          {
+            elements = {
+              { id = "scopes", size = 0.25 },
+              { id = "breakpoints", size = 0.25 },
+              { id = "stacks", size = 0.25 },
+              { id = "repl", size = 0.25 },
+            },
+            size = 30,
+            position = "left",
           },
-          size = 40,
-          position = "left",
+          {
+            elements = {
+              { id = "watches", size = 0.5 },
+              { id = "console", size = 0.5 },
+            },
+            size = 0.3,
+            position = "bottom",
+          },
         },
-      },
-      floating = {
-        max_height = 0.4,
-        max_width = 0.6,
-        border = "rounded",
-        mappings = {
-          close = { "q", "<Esc>" },
+        controls = {
+          enabled = true,
+          element = "repl",
         },
-      },
-      controls = {
-        enabled = true,
-        element = "repl",
-      },
-    })
+      }
 
-    dap.listeners.after.event_initialized["dapui_config"] = function()
-      dapui.open()
-      float_console_delayed()
-    end
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+        float_console_delayed()
+      end
 
-    dap.listeners.before.event_terminated["dapui_config"] = function()
-      dapui.close()
-    end
+      dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
 
-    dap.listeners.before.event_exited["dapui_config"] = function()
-      dapui.close()
-    end
+      dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
-    -- Re-float console after common events
-    dap.listeners.after.event_continued["dapui_console_float"] = float_console_delayed
-    dap.listeners.after.event_stopped["dapui_console_float"] = float_console_delayed
-    dap.listeners.after.event_output["dapui_console_float"] = float_console_delayed
-
-    -- Optional keymap to show it manually
-    vim.keymap.set("n", "<leader>dc", function()
-      dapui.float_element("console", { enter = true })
-    end, { desc = "DAP: Show Floating Console" })
-  end,
-}
-
-,
+      -- Re-float console after common events
+    end,
+  },
 
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -190,7 +173,6 @@ return {
     -- This 'config' function tells AstroNvim to load your custom nvim-dap.lua
     -- after the plugin itself is set up.
     config = function()
-      print ">>> DEBUG: nvim-dap config function is running! <<<"
       -- Load your custom nvim-dap configuration
       require "user.plugins.nvim-dap"
       require("dap").set_log_level "TRACE"

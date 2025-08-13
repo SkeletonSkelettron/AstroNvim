@@ -20,5 +20,6 @@ return {
   { import = "user.plugins.trouble" },
   { import = "user.plugins.overseer" },
   { import = "user.plugins.telescope-file-browser" },
+  { import = "user.plugins.nvim-dap-virtual-text" },
   --{ import = "astrocommunity.editing-support.copilotchat-nvim" },
 }
