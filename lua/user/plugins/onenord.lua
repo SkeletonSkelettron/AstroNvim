@@ -54,6 +54,8 @@ return {
         ["Number"] = { fg = "#45daff" },
         ["@number"] = { fg = "#45daff" },
         ["@lsp.type.variable.cpp"] = { fg = "#e9e9e9", bold = false },
+        ["@lsp.type.namespace.cpp"] = { fg = "#EBCB8B", bold = false },
+        --["@lsp.typemod.class.defaultLibrary.cpp"] = { fg = "#6A9955", bold = false },
         ["IlluminateWord"] = { fg = "#cd6ce6", bold = true }, -- Vim's repeat keyword group
         ["IlluminatedWordText"] = { fg = "#cd6ce6", bold = true },
         -- Variable field access (variable->field, variable.field)
