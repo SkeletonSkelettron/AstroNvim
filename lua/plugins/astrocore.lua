@@ -229,8 +229,6 @@ return {
         ["<S-Down>"] = { "<C-o>vj", desc = "Select down", silent = true },
         ["<S-left>"] = { "<left><C-o>v", desc = "Select left", silent = true },
         ["<S-right>"] = { "<C-o>v", desc = "Select right", silent = true },
-        ["<C-S-left>"] = { "<left><C-o>vb", desc = "Select word left", silent = true },
-        ["<C-S-right>"] = { "<C-o>vw", desc = "Select word right", silent = true },
 
         -- Comment toggle
         ["<C-_>"] = { "<C-o>:Commentary<cr>", desc = "Toggle comment (Windows)", silent = true },
@@ -299,22 +297,22 @@ return {
         ["<A-up>"] = { ":m-2<CR>gv=gv", desc = "Move selection up", silent = true },
 
         -- Copy/Cut/Paste
-        ["<C-c>"] = { "ygv", desc = "Copy selection", silent = true },
+        ["<C-c>"] = { "y<ESC>", desc = "Copy selection and exit", silent = true },
         ["<C-v>"] = { '"_dgP', desc = "Paste over selection", silent = true },
         ["<C-x>"] = { "di", desc = "Cut selection", silent = true },
 
         -- Visual mode behavior
         ["<BS>"] = { '"_di', desc = "Delete selection", silent = true },
-        ["<left>"] = { "O<ESC>i", desc = "Move to start of selection", silent = true },
-        ["<right>"] = { "<ESC>i<right>", desc = "Move to end of selection", silent = true },
-        ["<up>"] = { "<ESC><up>i", desc = "Move up and enter insert", silent = true },
-        ["<down>"] = { "<ESC><down>i", desc = "Move down and enter insert", silent = true },
+        ---["<left>"] = { "O<ESC>i", desc = "Move to start of selection", silent = true },
+        --["<right>"] = { "<ESC>i<right>", desc = "Move to end of selection", silent = true },
+        --["<up>"] = { "<ESC><up>i", desc = "Move up and enter insert", silent = true },
+        --["<down>"] = { "<ESC><down>i", desc = "Move down and enter insert", silent = true },
         ["<S-right>"] = { "l", desc = "Extend selection right", silent = true },
         ["<S-left>"] = { "h", desc = "Extend selection left", silent = true },
         ["<S-up>"] = { "k", desc = "Extend selection up", silent = true },
         ["<S-down>"] = { "j", desc = "Extend selection down", silent = true },
-
-        -- Comment toggle
+        ["<C-S-right>"] = { "oe", desc = "Extend selection to end of word", silent = true },
+        ["<C-S-left>"] = { "ob", desc = "Extend selection to start of word", silent = true }, -- Comment toggle
         ["<C-_>"] = { ":Commentary<cr>", desc = "Toggle comment (Windows)", silent = true },
         ["<C-/>"] = { ":Commentary<cr>", desc = "Toggle comment", silent = true },
 

@@ -45,12 +45,11 @@ return {
         CmpBorder = { fg = "#5E81AC", bg = "NONE" },
         CmpDocBorder = { fg = "#5E81AC", bg = "NONE" },
 
-
-
         --dark
         ["cppBoolean"] = { fg = "#45daff" }, -- C++ boolean values
         ["cppStructure"] = { fg = "#d79ee5" }, -- C++ boolean values
         ["cType"] = { fg = "#45daff", bold = false },
+        ["cppType"] = { fg = "#45daff", bold = false },
         ["@type"] = { fg = "#45daff" }, -- Tree-sitter types
         ["Number"] = { fg = "#45daff" },
         ["@number"] = { fg = "#45daff" },
@@ -66,11 +65,10 @@ return {
         -- ["@constant.builtin.boolean"] = { fg = "#6464ff" }, -- Tree-sitter boolean constants
         -- ["cppBoolean"] = { fg = "#6464ff" }, -- C++ boolean values
 
-
         -- -- Boolean type (bool)
         -- ["Type"] = { fg = "#6464ff" }, -- Base type group
         -- ["@type"] = { fg = "#6464ff" }, -- Tree-sitter types
- 
+
         -- ["StorageClass"] = { fg = "#6464ff" }, -- Storage class specifiers
 
         -- -- FIX: "if" should not be bold - need to specify color AND bold = false
@@ -97,7 +95,6 @@ return {
         -- ["@type.builtin"] = { fg = "#6464ff" },
         -- ["@lsp.typemod.type.defaultLibrary.cpp"] = { fg = "#6464ff", bold = false },
         -- ["@lsp.mod.defaultLibrary.cpp"] = { fg = "#267F99", bold = false },
-        
 
         -- -- C++ property/field access highlighting
         -- ["@property"] = { fg = "#0022ff", bold = false },
@@ -109,7 +106,6 @@ return {
         -- ["cppString"] = {fg="#00ce00", bold = false },
         -- ["cType"] = { fg = "#6464ff", bold = false },
 
-
         -- -- CORRECT comment highlight groups
         -- ["Comment"] = { fg = "#006100" }, -- Base comment group
         -- ["@comment"] = { fg = "#006100" }, -- Tree-sitter comments
@@ -117,7 +113,7 @@ return {
         -- ["cComment"] = { fg = "#006100" }, -- C block comments
         -- ["@comment.line"] = { fg = "#006100" }, -- Tree-sitter line comments
         -- ["@comment.block"] = { fg = "#006100" }, -- Tree-sitter block comments
- 
+
         -- -- Add these for #include preprocessing directives
         -- ["PreProc"] = { fg = "#AF00DB" }, -- Base preprocessor group
         -- ["@preproc"] = { fg = "#AF00DB" }, -- Tree-sitter preprocessor
@@ -145,7 +141,7 @@ return {
         -- ["TSProperty"] = { bold = false },
         -- ["TSField"] = { bold = false },
         -- ["LspVariable"] = { bold = false },
-      }, 
+      },
     }
 
     -- Force the highlight after theme loads
