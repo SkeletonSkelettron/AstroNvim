@@ -24,21 +24,21 @@ return {
     },
     keys = {
       -- Example keybindings (you can customize these)
-      { "<leader>-cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-      { "<leader>-cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
-      { "<leader>-ccr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
-      { "<leader>-ccp", "<cmd>CopilotChatPrompts<cr>", desc = "CopilotChat - Prompt" },
-      { "<leader>-cca", "<cmd>CopilotChatAgents<cr>", desc = "CopilotChat - Agents" },
-      { "<leader>-ccm", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Models" },
+      { "<leader>-ce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+      { "<leader>-ct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+      { "<leader>-cr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
+      { "<leader>-cp", "<cmd>CopilotChatPrompts<cr>", desc = "CopilotChat - Prompt" },
+      { "<leader>-ca", "<cmd>CopilotChatAgents<cr>", desc = "CopilotChat - Agents" },
+      { "<leader>-cm", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Models" },
       {
-        "<leader>-ccq",
+        "<leader>-cq",
         function()
           local input = vim.fn.input "Ask Copilot: "
           if input ~= "" then vim.cmd("CopilotChat " .. input) end
         end,
         desc = "CopilotChat - Ask input",
       },
-      { "<leader>-ccT", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle chat window" },
+      { "<leader>-cT", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle chat window" },
       -- More keybindings are available in the plugin's documentation
     },
   },
