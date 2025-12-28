@@ -21,6 +21,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.guicursor = "n-v-c:block"
 vim.opt.guicursor = "i:ver25"
+vim.opt.clipboard = "unnamedplus"
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore
@@ -28,7 +29,12 @@ if not pcall(require, "lazy") then
   vim.fn.getchar()
   vim.cmd.quit()
 end
-
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.cpp", "*.h", "*.hpp", "*.c" },
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
 require "lazy_setup"
 require "polish"
 require "CopilotChat"

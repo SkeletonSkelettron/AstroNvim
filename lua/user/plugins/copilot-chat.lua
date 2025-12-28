@@ -2,7 +2,7 @@
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary", -- Use the canary branch for the latest features
+    branch = "main", -- Use the canary branch for the latest features
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua for the official Copilot plugin
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -30,12 +30,14 @@ return {
       { "<leader>-ccp", "<cmd>CopilotChatPrompts<cr>", desc = "CopilotChat - Prompt" },
       { "<leader>-cca", "<cmd>CopilotChatAgents<cr>", desc = "CopilotChat - Agents" },
       { "<leader>-ccm", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Models" },
-      { "<leader>-ccq", function()
-          local input = vim.fn.input("Ask Copilot: ")
-          if input ~= "" then
-            vim.cmd("CopilotChat " .. input)
-          end
-        end, desc = "CopilotChat - Ask input" },
+      {
+        "<leader>-ccq",
+        function()
+          local input = vim.fn.input "Ask Copilot: "
+          if input ~= "" then vim.cmd("CopilotChat " .. input) end
+        end,
+        desc = "CopilotChat - Ask input",
+      },
       { "<leader>-ccT", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle chat window" },
       -- More keybindings are available in the plugin's documentation
     },
