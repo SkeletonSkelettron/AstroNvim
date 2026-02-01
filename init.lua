@@ -31,8 +31,16 @@ if not pcall(require, "lazy") then
 end
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.cpp", "*.h", "*.hpp", "*.c" },
+  callback = function() vim.lsp.buf.format() end,
+})
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "copilot-*",
   callback = function()
-    vim.lsp.buf.format()
+    vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
+
+    -- This is the key setting
+    if vim.fn.exists "+winfixbuf" == 1 then vim.opt_local.winfixbuf = true end
   end,
 })
 require "lazy_setup"
