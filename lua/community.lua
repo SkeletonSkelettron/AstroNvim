@@ -10,6 +10,7 @@ return {
   { import = "user.plugins.neogit" },
   { import = "user.plugins.vim-flog" },
   { import = "user.plugins.gitsigns" },
+  { import = "user.plugins.copilot" },
   { import = "user.plugins.copilot-chat" },
   { import = "user.plugins.nvim-scrollview" },
   { import = "user.plugins.neoscroll" },
