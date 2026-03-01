@@ -15,7 +15,7 @@ return {
     },
     -- 'highlight' is also a key within the 'opts' table.
     highlight = {
-      enable = false, -- Disable highlight globally if this is your intention
+      enable = true, -- Disable highlight globally if this is your intention
     },
     -- You can add other global Treesitter configurations here as direct keys in this 'opts' table.
     -- For example, to enable Treesitter-based indentation:

@@ -28,10 +28,6 @@ return
         ["<C-Down>"] = function() neoscroll.scroll(2, true, 100) end,
         ["<C-Up>"] = function() neoscroll.scroll(-2, true, 100) end,
 
-        -- Mouse wheel scrolling
-        ["<ScrollWheelUp>"] = function() neoscroll.scroll(-12, true, 200) end,
-        ["<ScrollWheelDown>"] = function() neoscroll.scroll(12, true, 200) end,
-
         -- Line by line scrolling (uncomment if you want smooth j/k)
         ["j"] = function() neoscroll.scroll(1, true, 200) end,
         ["k"] = function() neoscroll.scroll(-1, true, 200) end,

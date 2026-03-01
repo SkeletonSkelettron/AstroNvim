@@ -42,6 +42,7 @@ return {
     options = {
       opt = { -- vim.opt.<key>
         mouse = "a",
+        mousescroll = "ver:2,hor:6",
         relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
@@ -265,8 +266,6 @@ return {
 
         -- Mouse mappings
         ["<RightMouse>"] = { "<C-o>p", desc = "Paste at mouse", silent = true },
-        ["<ScrollWheelUp>"] = { "<C-o>4<C-Y>", desc = "Scroll up (mouse)", silent = true },
-        ["<ScrollWheelDown>"] = { "<C-o>4<C-E>", desc = "Scroll down (mouse)", silent = true },
         ["<C-LeftMouse>"] = {
           "<LeftMouse><C-o>:lua vim.lsp.buf.definition()<CR>",
           desc = "Go to definition (mouse)",

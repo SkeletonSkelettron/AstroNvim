@@ -45,4 +45,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 require "lazy_setup"
 require "polish"
-require "CopilotChat"

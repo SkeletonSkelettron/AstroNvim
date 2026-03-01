@@ -1,5 +1,7 @@
 -- ~/.config/nvim/lua/plugins/avante.lua
 
+vim.env.GEMINI_API_KEY = "AIzaSyD0pWQt1z6jVlaIVQwiL1KN-k3c3h0TXAA"
+
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -8,8 +10,14 @@ return {
   opts = {
     -- add any opts here
     -- check "Configuring" below for more details
-    -- 1. Explicitly tell it to use Copilot
-    provider = "copilot",
+    -- 1. Explicitly tell it to use Gemini
+    provider = "gemini",
+    providers = {
+      gemini = {
+        model = "gemini-2.5-pro",
+        api_key_name = "GEMINI_API_KEY",
+      },
+    },
     -- 2. Optionally add a GPT-based provider
     -- provider = "gpt",
   },
@@ -24,8 +32,7 @@ return {
     --- The below dependencies are optional,
     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
-    "github/copilot.vim", -- additional Copilot dependency
+    -- CORRECTED: Setup copilot.lua properly so Avante detects it
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",

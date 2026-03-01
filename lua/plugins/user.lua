@@ -212,6 +212,7 @@ return {
       -- vim.cmd "colorscheme jb"
     end,
   },
+  --[[
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -220,17 +221,10 @@ return {
       require("copilot").setup {
         suggestion = { enabled = true }, -- You might disable these if using nvim-cmp
         panel = { enabled = true }, -- or if CopilotChat.nvim handles the UI
-
-        server_opts_overrides = {
-          settings = {
-            advanced = {
-              model = "claude-4.5-opus",
-            },
-          },
-        },
       }
     end,
   },
+  --]]
   {
     "folke/lazy.nvim", -- We leverage lazy.nvim's 'config' for general settings
     opts = {
